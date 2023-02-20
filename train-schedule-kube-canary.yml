@@ -1,3 +1,4 @@
+//add this after initial deployment of the app to prod using train-schedule-kube.yml
 kind: Service
 apiVersion: v1
 metadata:
