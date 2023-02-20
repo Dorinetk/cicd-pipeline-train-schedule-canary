@@ -1,3 +1,4 @@
+//Used for initial deployment of the app to prod
 kind: Service
 apiVersion: v1
 metadata:
