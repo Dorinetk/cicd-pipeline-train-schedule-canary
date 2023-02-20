@@ -46,6 +46,7 @@ pipeline {
                 CANARY_REPLICAS = 1
             }
             steps {
+                //check canary pod deployment at specified port
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
@@ -58,11 +59,13 @@ pipeline {
                 branch 'master'
             }
             environment {
+                //cleans canary pods
                 CANARY_REPLICAS = 0
             }
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
+                // rolls out canary and production version at same time. 
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
