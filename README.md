@@ -15,8 +15,11 @@ You can run the app with:
 Once it is running, you can access it in a browser at http://localhost:8080
 
 ## Notes
-This is a sample canary deployement of an app to fix a bug after it has been deployed to prod.
-Deploy to pro using train-schedule-kube.yml before adding train-schedule-kube-canary.yml for the canary version.
+
+<p>This is a sample canary deployement of an app to fix a bug after it has been deployed to prod.
+Deploy to pro using train-schedule-kube.yml before adding train-schedule-kube-canary.yml for the canary version.</p>
 
 Edit the initial Jenkinsfile to add stage CanaryDeploy, env CANARY_REPLICAS & canary deployment yml file in deployProduction stage.
+
+Check running pods using <em>kubectl get pods -w</em>. Use <em>cat ~/.kube/config</em> to get content of kubeconfig credentials for Jenkins set-up.
 
